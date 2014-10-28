@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/*导航样式*/
+
+.blog-nav{
+    width: 100%;height: 52px;background-color:#C3AD7E /*#CAB78D*/;
+    position: fixed;min-width: 1024px;
+    top:0;
+    left:0;
+}
+@media screen and (max-device-width:900px){
+    .blog-nav{
+        width: auto;
+    }
+}
+/*导航下的表单样式定义*/
+
+.blog-nav form{
+    height: 52px;
+    float: right;
+}
+
+/*导航下表单下面的 Search 和文本输入框样式*/
+
+.blog-nav form .button,.blog-nav form .text{
+    height: 24px;     border-radius: 10px;
+    margin-top: 15px ;
+}
+
+/*导航下表单下面的 Search*/
+
+.blog-nav form .button{
+     width: 75px; color: black;
+}
+
+/*logo样式*/
+
+.blog-nav img{
+    float: left;
+    width: 98px;height: 50px;margin-left: 50px;
+}
+body{
+    background: url(../image/computer.jpg) no-repeat;
+    background-size: 900px 100%;
+    background-attachment: fixed;                       /*设置背景图片是固定不动的*/
+    min-width: 1200px;height: auto;
+}
+/*设置当屏幕宽度大于900px时 背景图片大小宽是100%，高是100%*/
+
+@media(min-width:900px){
+    body
+    {
+        background-size:100% 100%;
+    }
+}
+}
+#last-li{
+}
+.blog-nav ul{
+    margin-bottom: 0;
+}
+.blog-nav ul li{
+    float: right; 
+    width: 120px;height: 52px;
+    text-align: center;line-height: 48px;
+    border: 2px #e8e8e8 solid;
+    border-radius: 10px;
+    margin-left:20px; 
+}
+.blog-content{
+    width: 900px;height: 1200px;  
+    margin: 0 auto; 
+    margin-top: 52px;
+}
+span{
+    color:#F39C12  /*rgb(246,179,127)*/;
+}
+i{
+    font-size: 36px;
+    /*display: none;*/
+}
+.blog-foot{
+    width: 100%;height: 50px;
+    background-color: green;
+}
+.blog-content-content{
+    height: auto;
+}
+.blog-content-title li,.blog-content-content li{
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+}
+.blog-content-title li{
+    font-size: 36px;
+}
+
+.blog-content-content-list{
+    height: 50px;
+    margin-top: 10px;
+    line-height: 50px;
+}
+.blog-content-content-list ul{
+    border: 3px #e6e6e6 solid;
+    border-radius: 10px;
+}
