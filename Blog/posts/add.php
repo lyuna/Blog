@@ -21,12 +21,12 @@
         <td>作者</td>
         <td><input type="text" name="author" id="author"></td>
     </tr>
-    <tr>
+<!--     <tr>
         <td>简介</td>
         <td><label for="description"></label>
             <textarea   cols="60" rows="5" name="description" id="description"></textarea>
         </td>
-    </tr>
+    </tr> -->
     <tr>
         <td>内容</td>
         <td>

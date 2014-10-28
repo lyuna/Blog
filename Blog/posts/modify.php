@@ -1,12 +1,12 @@
 ﻿<?php 
 	header('Content-type:text/html;charset=utf8');
 	mysql_query('set names utf8');
-	require_once('E:/Blog/connect.php');
+	require_once '../inc/db.php';
 	$id=$_GET['id'];
 	$select="select * from article where id=$id";
-	$query=mysql_query($select);
-	$data=mysql_fetch_assoc($query);
-	print_r($data);
+	$stmt=$db->prepare($select);
+    $stmt->execute();
+	$data=$stmt->fetch(PDO::FETCH_ASSOC);
  ?>
  <!doctype html>
  <html>
@@ -16,7 +16,7 @@
  </head>
  <body>
  		<form action="modify.handle.php" method="post" name="form1" id="form1">
- 		<input type="text" name="id" value="<?php echo $data['id']; ?>">
+ 		<input type="hidden" name="id" value="<?php echo $data['id']; ?>">
 		<table width="779" border="0" cellpadding="8" cellspacing="1">
     <tr>
         <td colspan="2" align="center">文章修改</td>
@@ -29,12 +29,6 @@
     <tr>
         <td>作者</td>
         <td><input type="text" name="author" id="author" placeholder="<?php echo $data['author']; ?>"></td>
-    </tr>
-    <tr>
-        <td>简介</td>
-        <td><label for="description"></label>
-            <textarea   cols="60" rows="5" name="description" id="description" placeholder="<?php echo $data['description'] ?>"></textarea>
-        </td>
     </tr>
     <tr>
         <td>内容</td>

@@ -7,6 +7,23 @@ a{
     text-decoration: none;
     color: black;
 }
+.register{
+    position: absolute;
+    left: 20px;
+    top: 200px;
+    width:150px;
+    height: 200px;
+}
+.register li{
+    width:150px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 24px;
+}
+.register a{
+    text-decoration: none;
+}
 
 /*导航样式*/
 
@@ -109,6 +126,6 @@ i{
     line-height: 50px;
 }
 .blog-content-content-list ul{
-    border: 3px #e6e6e6 solid;
+    /*border: 3px #e6e6e6 solid;*/
     border-radius: 10px;
 }
