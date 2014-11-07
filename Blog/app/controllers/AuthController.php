@@ -12,7 +12,7 @@ class AuthController extends \BaseController {
 	public function register(){
 		return View::make('register');
 	}
-	
+
 	public function save(){
 		$input=Input::all();
 		$rules=array('email'=>'required|email|unique:users','password'=>'required|min:8|max:15|confirmed','password_confirmation'=>'required|same:password');
@@ -25,25 +25,29 @@ class AuthController extends \BaseController {
 		}
 		$email=Input::get('email');
 		$password=Hash::make($input['password']);
-		$articles=Article::with('user')->get();
 		$user=new User;
 		$user->email=$email;
 		$user->password=$password;
 		if($user->save()){
-			return View::make('lists')->withArticles($articles);
+			return Redirect::to('list');
 		}
 	}
 	public function login(){
 
 		return View::make('login');
 	}
+	public function logout(){
+		Auth::logout();
+		return Redirect::back();
+	}
 
 	public function validation(){
-		$articles=Article::with('user')->get();
 		$email=Input::get('email');
 		$password=Input::get('password');
+		$articles=Article::with('user')->paginate(5);
 		if(Auth::attempt(array('email'=>$email,'password'=>$password))){
 			return View::make('lists')->withArticles($articles);
+			// return Redirect::to('list');
 		}
 	}
 
@@ -52,12 +56,21 @@ class AuthController extends \BaseController {
 		return View::make('detail')->withArticles($articles);
 	}
 
-
+	public function lists(){
+		$articles=Article::with('user')->paginate(5);
+		return View::make('lists')->withArticles($articles);
+	}
 	public function index()
 	{
-		//
+		return self::lists();
 	}
-
+	public function replysave($id){
+		$comment=new Comment;
+		$comment->body=Input::get('body');
+		$comment->article_id=$id;
+		$comment->save();
+		return Redirect::back();
+	}
 	/**
 	* Show the form for creating a new resource.
 	* GET /auth/create
