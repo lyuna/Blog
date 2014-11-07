@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRememberTokenToUers extends Migration {
+class AlterPasswordForLyu extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class AddRememberTokenToUers extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->boolean('can')->after('remember_token');
+			// $table->password=Hash::make('13143264buxia')->;
 		});
 	}
 

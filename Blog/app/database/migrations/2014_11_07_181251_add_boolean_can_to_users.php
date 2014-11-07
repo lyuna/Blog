@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRememberTokenToUers extends Migration {
+class AddBooleanCanToUsers extends Migration {
 
 	/**
 	 * Run the migrations.

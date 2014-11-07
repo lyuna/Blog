@@ -8,7 +8,9 @@ class AuthController extends \BaseController {
 	*
 	* @return Response
 	*/
-
+	/**
+	*
+	*/
 	public function register(){
 		return View::make('register');
 	}
@@ -49,6 +51,9 @@ class AuthController extends \BaseController {
 			return View::make('lists')->withArticles($articles);
 			// return Redirect::to('list');
 		}
+		else{
+			return View::make('error_login');
+		}
 	}
 
 	public function detail($id){
@@ -71,6 +76,15 @@ class AuthController extends \BaseController {
 		$comment->save();
 		return Redirect::back();
 	}
+
+	public function delete(){
+		return "delete";
+	}
+	public function update(){
+		return "update";
+	}
+
+
 	/**
 	* Show the form for creating a new resource.
 	* GET /auth/create
@@ -124,10 +138,7 @@ class AuthController extends \BaseController {
 	* @param  int  $id
 	* @return Response
 	*/
-	public function update($id)
-	{
-		//
-	}
+
 
 	/**
 	* Remove the specified resource from storage.
